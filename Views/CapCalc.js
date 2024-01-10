@@ -9,8 +9,11 @@ const CapCalc = () =>
 
     function CalculateCapacitance() 
     {
-        const calculatedCapacitance = (amps * 2652) / voltage;
-        setCapacitance((calculatedCapacitance).toFixed(0));
+        if (amps !== 0 && voltage !== 0) 
+        {
+            const calculatedCapacitance = (amps * 2652) / voltage;
+            setCapacitance((calculatedCapacitance).toFixed(0));
+        }
     }
 
     return (
@@ -21,7 +24,7 @@ const CapCalc = () =>
                 placeholder='Amps on Start Winding'
                 style={{ height: 40, width: 230, textAlign: 'center', borderColor: 'gray', borderWidth: 1, borderRadius: 8, marginTop: 20 }}
                 onChangeText={text => setAmps(parseFloat(text))}
-                value={amps.toString()}
+                // value={amps.toString()}
                 keyboardType='numeric' 
             />
             <TextInput 
@@ -29,7 +32,7 @@ const CapCalc = () =>
                 placeholder='Voltage between Common and Run'
                 style={{ height: 40, width: 230, textAlign: 'center', borderColor: 'gray', borderWidth: 1, borderRadius: 8, marginTop: 10 }}
                 onChangeText={text => setVoltage(parseFloat(text))}
-                value={voltage.toString()}
+                // value={voltage.toString()}
                 keyboardType='numeric'
             />
 
