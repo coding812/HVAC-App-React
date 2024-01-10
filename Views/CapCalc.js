@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
 const CapCalc = () => 
 {
@@ -30,13 +30,15 @@ const CapCalc = () =>
             <TextInput 
                 id='Voltage'
                 placeholder='Voltage between Common and Run'
-                style={{ height: 40, width: 230, textAlign: 'center', borderColor: 'gray', borderWidth: 1, borderRadius: 8, marginTop: 10 }}
+                style={{ height: 40, width: 230, textAlign: 'center', borderColor: 'gray', borderWidth: 1, borderRadius: 8, marginTop: 10, marginBottom: 10 }}
                 onChangeText={text => setVoltage(parseFloat(text))}
                 // value={voltage.toString()}
                 keyboardType='numeric'
             />
-
-            <Text style={{ marginTop: 10 }} onPress={CalculateCapacitance}>Calculate</Text>
+            <Button
+                title="Calculate" 
+                onPress={CalculateCapacitance}
+            />
             <Text style={{ marginTop: 10 }}>Calculated Capacitance: {capacitance} MicroFarads</Text>
         </View>
     );
@@ -52,6 +54,7 @@ const styles = StyleSheet.create({
         fontSize: 26,
         fontWeight: 'bold',
     },
+    
 });
 
 export default CapCalc;
