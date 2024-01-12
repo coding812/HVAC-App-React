@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { View, Text, StyleSheet, TextInput, Button, TouchableHighlight } from 'react-native';
+
 
 const CapCalc = () => 
 {
@@ -35,24 +36,42 @@ const CapCalc = () =>
                 // value={voltage.toString()}
                 keyboardType='numeric'
             />
-            <Button
-                title="Calculate" 
+            <TouchableHighlight
+                style={styles.button}
                 onPress={CalculateCapacitance}
-            />
+            >
+                <Text style={{ color: '#F4F9FA',fontSize: 18, fontWeight: '800', letterSpacing: 1.5 }}>
+                    Calculate
+                </Text>
+            </TouchableHighlight>
+            
             <Text style={{ marginTop: 10 }}>Calculated Capacitance: {capacitance} MicroFarads</Text>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
+    container: 
+    {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#21d6ff',
     },
-    text: {
+    text: 
+    {
         fontSize: 26,
         fontWeight: 'bold',
+    },
+    button: 
+    {
+        alignItems: 'center',
+        backgroundColor: '#0023EB',
+        padding: 10,
+        width: 120,
+        borderRadius: 8,
+        marginTop: 10,
+        marginBottom: 10,
     },
     
 });
